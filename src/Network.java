@@ -12,8 +12,8 @@ public class Network {
 
 
         for (int i = 0; i < n; i++) {
-            if (!visit[i]) {
-                dfs(i);
+            if (visit[i]==false) {
+                dfs(i); 
                 answer++;
             }
         }
