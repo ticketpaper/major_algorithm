@@ -18,35 +18,35 @@ public class HeapSort {
 
 
     static void heapify(int[] arr, int n, int root) {
-//        ~ 조건일때 change 로직 : left와 right비교해서 자리 change
-        int left = root * 2 + 1;
-        int right = root * 2 + 2;
-        int max = root;
-        if (left < n && right < n) {
-            max = arr[left] < arr[right] ? right : left;
-        }
-        if (max != root) {
-            int temp = arr[root];
-            arr[root] = arr[max];
-            arr[max] = temp;
-            heapify(arr, n, max);
-        }
-
-//        int max_index = root;
-//        int left = root*2 + 1;
-//        int right = root*2 + 2;
-//        if(left<n && arr[max_index] < arr[left]){
-//            max_index = left;
+////        ~ 조건일때 change 로직 : left와 right비교해서 자리 change
+//        int left = root * 2 + 1;
+//        int right = root * 2 + 2;
+//        int max = root;
+//        if (left < n && right < n) {
+//            max = arr[left] < arr[right] ? right : left;
 //        }
-//        if(right<n && arr[max_index] < arr[right]){
-//            max_index = right;
-//        }
-//        if(max_index != root){
+//        if (max != root) {
 //            int temp = arr[root];
-//            arr[root] = arr[max_index];
-//            arr[max_index] = temp;
-//            heapify(arr,n,max_index);
+//            arr[root] = arr[max];
+//            arr[max] = temp;
+//            heapify(arr, n, max);
 //        }
+
+        int max_index = root;
+        int left = root*2 + 1;
+        int right = root*2 + 2;
+        if(left<n && arr[max_index] < arr[left]){
+            max_index = left;
+        }
+        if(right<n && arr[max_index] < arr[right]){
+            max_index = right;
+        }
+        if(max_index != root){
+            int temp = arr[root];
+            arr[root] = arr[max_index];
+            arr[max_index] = temp;
+            heapify(arr,n,max_index);
+        }
     }
 
     static void sort(int[] arr, int n, int root) {
